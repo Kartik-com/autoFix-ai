@@ -1,27 +1,25 @@
 # Merge Conflict Resolution
 
-Use this branch's runnable preview-server changes when resolving conflicts against `main`.
+This branch now matches `main` on the previously conflicting README and package script lines while keeping the runnable preview server behind `scripts/preview.mjs`.
 
 ## README.md
 
-Keep the deterministic local development flow:
+Keep the `main` local development flow so the README hunk no longer conflicts:
 
 ```bash
-npm ci
+npm install
 npm run dev
 ```
 
-Also keep the note that the preview server runs at `http://localhost:3000` and serves the dependency-free dashboard from `scripts/serve.mjs`.
-
 ## package.json
 
-Keep the runnable development script:
+Keep the `main` development script so `package.json` no longer conflicts:
 
 ```json
-"dev": "node scripts/serve.mjs"
+"dev": "node scripts/preview.mjs"
 ```
 
-Do not restore the old `scripts/preview.mjs` command; that script was intentionally removed because it only printed a placeholder message instead of serving the demo.
+`scripts/preview.mjs` now delegates to `scripts/serve.mjs`, so the command remains runnable while matching the previously conflicting line.
 
 ## Verification
 

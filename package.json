@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "node scripts/serve.mjs",
+    "dev": "node scripts/preview.mjs",
     "build": "node scripts/build.mjs",
     "lint": "node scripts/validate.mjs",
     "typecheck": "node scripts/validate.mjs"
