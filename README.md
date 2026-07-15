@@ -23,9 +23,11 @@ AutoFix AI is a hackathon-ready autonomous engineering platform for OpenAI Build
 ## Local Development
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
+
+The preview server runs at `http://localhost:3000` and serves a dependency-free demo dashboard from `scripts/serve.mjs`.
 
 Run the API:
 
