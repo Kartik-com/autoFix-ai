@@ -1,30 +1,25 @@
 # Merge Conflict Resolution
 
-This branch now matches `main` exactly for the previously conflicting `README.md` and `package.json` content, while keeping the runnable preview server behind `scripts/preview.mjs`.
+This branch now matches `main` exactly for all files GitHub reported as conflicting:
 
-## README.md
+- `README.md`
+- `package.json`
+- `scripts/preview.mjs`
 
-The README content intentionally matches `main` to avoid another merge conflict in GitHub's conflict editor.
+Those files are intentionally kept aligned with `main` so GitHub can merge the PR without manual conflict resolution.
 
-## package.json
+## Preserved demo functionality
 
-The package manifest intentionally matches `main` on the previously conflicting script line:
-
-```json
-"dev": "node scripts/preview.mjs"
-```
-
-`scripts/preview.mjs` delegates to `scripts/serve.mjs`, so the command remains runnable while matching the conflict-prone line.
+The richer runnable server implementation remains available in `scripts/serve.mjs`. If you want the preview command to launch the local server in a follow-up PR, update `scripts/preview.mjs` after this conflict-free merge lands.
 
 ## Verification
 
-After resolving, run:
+Run:
 
 ```bash
 npm ci
+npm run typecheck
 npm run build
 npm run dev
-curl -I http://127.0.0.1:3000
-curl -s http://127.0.0.1:3000/health
 python -m py_compile backend/autofix/main.py
 ```
