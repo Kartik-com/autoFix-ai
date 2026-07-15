@@ -1,25 +1,20 @@
 # Merge Conflict Resolution
 
-This branch now matches `main` on the previously conflicting README and package script lines while keeping the runnable preview server behind `scripts/preview.mjs`.
+This branch now matches `main` exactly for the previously conflicting `README.md` and `package.json` content, while keeping the runnable preview server behind `scripts/preview.mjs`.
 
 ## README.md
 
-Keep the `main` local development flow so the README hunk no longer conflicts:
-
-```bash
-npm install
-npm run dev
-```
+The README content intentionally matches `main` to avoid another merge conflict in GitHub's conflict editor.
 
 ## package.json
 
-Keep the `main` development script so `package.json` no longer conflicts:
+The package manifest intentionally matches `main` on the previously conflicting script line:
 
 ```json
 "dev": "node scripts/preview.mjs"
 ```
 
-`scripts/preview.mjs` now delegates to `scripts/serve.mjs`, so the command remains runnable while matching the previously conflicting line.
+`scripts/preview.mjs` delegates to `scripts/serve.mjs`, so the command remains runnable while matching the conflict-prone line.
 
 ## Verification
 
