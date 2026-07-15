@@ -20,6 +20,7 @@ const backend = readFileSync('backend/autofix/main.py', 'utf8');
 const expectations = [
   ['GPT-5.6 + Codex positioning', page.includes('GPT-5.6 + Codex')],
   ['Analyze Repository CTA', page.includes('Analyze Repository')],
+  ['Frontend backend fetch', readFileSync('scripts/serve.mjs', 'utf8').includes("fetch('http://127.0.0.1:8000/analyze'")],
   ['AI reasoning panel', page.includes('AI reasoning panel')],
   ['Permission-gated backend', backend.includes('Repository authorization is required before analysis')],
   ['Analyze endpoint', backend.includes('@app.post("/analyze"')],
